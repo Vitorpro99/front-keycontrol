@@ -69,7 +69,7 @@ export default function RelatoriosPage() {
             <div className={listStyles.container}>
                 <div className="print-only header-relatorio">
                     <div style={{ borderBottom: '2px solid #C42020', paddingBottom: '10px', marginBottom: '20px' }}>
-                        {/* Título Oficial */}
+                        {/* Título */}
                         <h1 style={{ margin: 0, color: '#333' }}>
                             KeyControl - Relatório de {tipoRelatorio === 'manutencao' ? 'Manutenções' : 'Multas'}
                         </h1>
