@@ -1,0 +1,151 @@
+/* Fundo com um gradiente suave para dar modernidade */
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding: 1rem;
+}
+
+/* Cartão com mais destaque e bordas arredondadas */
+.formDiv {
+    width: 100%;
+    max-width: 420px;
+    padding: 3rem;
+    background-color: #ffffff;
+    border-radius: 16px; /* Mais arredondado */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); /* Sombra difusa e elegante */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Título com detalhe visual */
+.title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+/* Labels */
+.label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+/* --- INPUTS COM ÍCONES --- */
+.inputGroup {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* O Ícone dentro do input */
+.icon {
+    position: absolute;
+    left: 15px;
+    color: #999;
+    width: 20px;
+    height: 20px;
+    pointer-events: none; /* O clique passa através do ícone */
+    transition: color 0.3s ease;
+}
+
+.input {
+    width: 100%;
+    padding: 0.9rem 1rem 0.9rem 3rem; /* Padding na esquerda para o ícone */
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+/* Efeito de Foco */
+.input:focus {
+    outline: none;
+    border-color: #C42020;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(196, 32, 32, 0.1);
+}
+
+/* Muda a cor do ícone quando o input tem foco (usando seletor adjacente) */
+.input:focus + .icon, 
+.inputGroup:focus-within .icon {
+    color: #C42020;
+}
+
+/* --- BOTÃO --- */
+.mainButton {
+    background-color: #C42020;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    box-shadow: 0 4px 15px rgba(196, 32, 32, 0.3); /* Sombra vermelha */
+}
+
+.mainButton:hover {
+    background-color: #a01a1a;
+    transform: translateY(-2px); /* Efeito de elevação */
+}
+
+.mainButton:disabled {
+    background-color: #ccc;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Link de rodapé */
+.footerText {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.link {
+    color: #C42020;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+    transition: color 0.2s;
+}
+
+.link:hover {
+    color: #8b1616;
+    text-decoration: underline;
+}
+.title {
+    font-size: 2rem; /* Um pouco maior */
+    font-weight: 800; /* Mais grosso */
+    text-align: center;
+    color: #C42020; /* Vermelho da marca */
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px; /* Letras um pouco mais juntas ficam mais modernas */
+}
