@@ -268,17 +268,24 @@
 }
 
 /* Scrollbar Bonita */
-::-webkit-scrollbar {
+.modalContent::-webkit-scrollbar,
+.manutencoesList::-webkit-scrollbar {
     width: 6px;
 }
-::-webkit-scrollbar-track {
+
+.modalContent::-webkit-scrollbar-track,
+.manutencoesList::-webkit-scrollbar-track {
     background: #f1f1f1; 
 }
-::-webkit-scrollbar-thumb {
+
+.modalContent::-webkit-scrollbar-thumb,
+.manutencoesList::-webkit-scrollbar-thumb {
     background: #ccc; 
     border-radius: 10px;
 }
-::-webkit-scrollbar-thumb:hover {
+
+.modalContent::-webkit-scrollbar-thumb:hover,
+.manutencoesList::-webkit-scrollbar-thumb:hover {
     background: #bbb; 
 }
 
