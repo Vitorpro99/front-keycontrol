@@ -1,69 +1,114 @@
-/* Estilos para a secção lateral (Multas, IPVA, etc.) */
+/* Container da Secção */
 .lateralSection {
-    /* Adiciona um espaçamento se houver múltiplas secções */
-    margin-bottom: 1.5rem; 
+    margin-bottom: 2rem; 
 }
 
+/* Título da Secção (Mantivemos a identidade vermelha) */
 .lateralSection h3 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
   color: #333;
   margin-top: 0;
   margin-bottom: 1rem;
-  /* Usando a sua cor principal */
-  border-bottom: 2px solid #C42020; 
+  border-bottom: 2px solid #C42020; /* Linha vermelha */
   padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
+/* Lista com Scroll */
 .lateralList {
   list-style: none;
   padding: 0;
-  /* Altura máxima com scroll */
-  max-height: 200px; 
+  max-height: 350px; /* Um pouco mais alto para ver melhor */
   overflow-y: auto;
-  /* Um pequeno padding para o scroll não ficar colado */
-  padding-right: 5px; 
+  padding-right: 8px; /* Espaço para a scrollbar não colar */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espaço entre os cartões */
 }
 
+/* --- ESTILO DO ITEM (CARTÃO) --- */
 .lateralItem {
-  background-color: #f9f9f9; /* Um fundo levemente diferente do modal */
-  border-radius: 6px;
+  background-color: white;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
   padding: 1rem;
-  margin-bottom: 0.75rem;
-  border: 1px solid #eaeaea;
+  transition: all 0.2s ease;
+  position: relative;
+  
+  /* FLEXBOX: A Solução para o botão não vazar */
+  display: flex;
+  flex-direction: column; /* Organiza conteúdo em coluna */
 }
 
+/* Efeito Hover no Cartão */
+.lateralItem:hover {
+  border-color: #C42020;
+  box-shadow: 0 4px 12px rgba(196, 32, 32, 0.08);
+  transform: translateX(2px); /* Leve movimento para a direita */
+}
+
+/* Texto dentro do item */
 .lateralItem p {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.4rem 0;
   font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
 }
 
-/* Botão de excluir menor */
+/* Destaque para os rótulos (Data:, Valor:, etc) */
+.lateralItem strong {
+    color: #333;
+    font-weight: 600;
+}
+
+/* --- BOTÃO DE EXCLUIR (CORRIGIDO) --- */
 .deleteButtonSmall {
+  /* Removemos o float! Usamos Flexbox agora. */
+  align-self: flex-end; /* Empurra o botão para a direita */
+  
   background-color: transparent;
   color: #c42020;
-  border: 1px solid #c42020;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
+  border: 1px solid #e1e1e1; /* Borda cinza suave */
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
   font-size: 0.8rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  margin-top: 0.5rem;
-  float: right; /* Alinha o botão à direita */
-  clear: both;
+  margin-top: 0.8rem; /* Espaço seguro acima do botão */
 }
 
 .deleteButtonSmall:hover {
   background-color: #c42020;
   color: white;
+  border-color: #c42020;
 }
 
 /* Mensagem de "Nenhum registro" */
 .noRecords {
     text-align: center;
-    color: #666;
-    padding: 1rem;
+    color: #888;
+    padding: 1.5rem;
+    font-size: 0.9rem;
     font-style: italic;
-    background-color: #fdfdfd;
-    border-radius: 6px;
-    border: 1px dashed #ddd;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px dashed #ccc;
+}
+
+/* --- Scrollbar Personalizada para a Lista --- */
+.lateralList::-webkit-scrollbar {
+    width: 6px;
+}
+.lateralList::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+.lateralList::-webkit-scrollbar-thumb {
+    background: #ccc; 
+    border-radius: 10px;
+}
+.lateralList::-webkit-scrollbar-thumb:hover {
+    background: #bbb; 
 }

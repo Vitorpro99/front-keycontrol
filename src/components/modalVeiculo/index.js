@@ -130,11 +130,9 @@ export default function ModalVeiculo({ veiculo, onClose }) {
                     <Link className={styles.editButton} href={`/cadastro-multa/${veiculo.id}`}>Adicionar Multa</Link>
                     <Link className={styles.editButton} href={`/cadastro-ipva/${veiculo.id}`}>Adicionar IPVA </Link>
                     <Link className={styles.editButton} href={`/transferir/${veiculo.id}`}>Transferir Veículo</Link>
+                    <Link href={`/cadastro-seguro/${veiculo.id}`} className={styles.edit}>Adicionar Seguro</Link>
                     <button type="button" className={styles.editButton} onClick={() => editarVeiculo(veiculo.id)}>Editar Veículo</button>
                     <button type="button" disabled className={styles.deleteButton} onClick={() => excluirVeículo(veiculo.id)}>Excluir Veículo</button>
-                    <Link href={`/seguro/cadastrar/${veiculo.id}`} className={styles.actionButton}>
-                        Adicionar Seguro
-                    </Link>
                     <Link href={`/veiculos/${veiculo.id}`} className={styles.profileButton}>
                         Ver Prontuário
                     </Link>
