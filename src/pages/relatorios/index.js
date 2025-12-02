@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import api from '@/services/api';
-import Header from '@/components/header'; // Verifique se é Header com H maiúsculo
+import Header from '@/components/header';
 import formStyles from '@/styles/form.module.css';
 import listStyles from '@/styles/Lista.module.css';
 import { useRouter } from 'next/router';

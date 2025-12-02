@@ -1,70 +1,77 @@
+/* Fundo Escuro com Desfoque */
 .modalOverlay {
     position: fixed; 
     top: 0;
     left: 0;
     width: 100vw; 
     height: 100vh; 
-    background-color: rgba(0, 0, 0, 0.7); 
+    background-color: rgba(0, 0, 0, 0.6); 
+    backdrop-filter: blur(4px); /* Efeito moderno de vidro fosco */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 2000; /* Garante que fica acima de tudo */
 }
 
+/* Caixa do Modal */
 .modalContent {
     background: white;
-    padding: 25px 35px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
     position: relative;
-    width: 90%;
-    max-width: 900px; 
-    animation: fadeIn 0.3s ease-out;
-    justify-content: center;
+    width: 95%;
+    max-width: 1000px; /* Um pouco mais largo para acomodar bem as colunas */
+    max-height: 90vh; /* Não deixa passar da altura da tela */
+    overflow-y: auto; /* Permite rolar se a tela for pequena */
+    animation: modalIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+/* Botão Fechar (X) */
 .closeButton {
     position: absolute;
-    top: 10px;
-    right: 15px;
-    background: none;
+    top: 15px;
+    right: 20px;
+    background: #f0f0f0;
     border: none;
-    font-size: 2rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.2rem;
     color: #666;
     cursor: pointer;
-    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
 }
 
 .closeButton:hover {
-    color: #000;
+    background-color: #e0e0e0;
+    color: #333;
+    transform: rotate(90deg);
 }
 
 .modalContent h2 {
     margin-top: 0;
-    color: #333;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
+    color: #1a1a1a;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
 }
 
-.detailsGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Força duas colunas para detalhes principais */
-    gap: 15px;
-}
-
-.detailsGrid p {
-    margin: 0;
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-radius: 4px;
-    border-left: 3px solid #C42020; 
-}
-
+/* --- Layout de Colunas --- */
 .modalBodyColumns {
   display: flex;
   gap: 2rem; 
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .modalBodyColumns {
+        flex-direction: column; /* Em telemóveis, fica um em cima do outro */
+    }
 }
 
 .mainColumn {
@@ -77,214 +84,205 @@
 
 .sideColumn {
   flex: 1; 
-  border-left: 1px solid #eee;
-  padding-left: 2rem;
+  /* border-left: 1px solid #eee; */
+  /* padding-left: 2rem; */
   min-width: 0;
-  max-height: 500px; 
-  overflow-y: auto;
-  padding-right: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
-.manutencoesSection {
+
+/* Detalhes do Veículo */
+.detailsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    background-color: #f8f9fa;
     padding: 1.5rem;
-    background-color: #f9f9f9;
     border-radius: 8px;
-    border-left: 3px solid #C42020;
+    border: 1px solid #eee;
+}
+
+.detailsGrid p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.detailsGrid strong {
+    color: #333;
+    display: block;
+    margin-bottom: 2px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Secção de Manutenções */
+.manutencoesSection {
+    /* Sem fundo cinza aqui para ficar mais limpo, apenas a lista */
 }
 
 .manutencoesSection h3 {
+    font-size: 1.1rem;
     color: #333;
-    margin-top: 0;
     margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .manutencoesList {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: grid;
-    gap: 1rem;
-    max-height: 300px; /* Adiciona scroll se a lista for muito grande */
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-height: 350px;
     overflow-y: auto;
+    padding-right: 5px; /* Espaço para scrollbar */
 }
 
 .manutencaoItem {
     background-color: white;
     padding: 1rem;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    border: 1px solid #eee;
+    border-radius: 8px;
+    border: 1px solid #e1e1e1;
+    transition: border-color 0.2s;
+    position: relative;
+}
+
+.manutencaoItem:hover {
+    border-color: #C42020;
 }
 
 .manutencaoItem p {
-    margin: 0.5rem 0;
-    color: #444;
-    font-size: 0.95rem;
-}
-
-/* --- INÍCIO DAS NOVAS CLASSES PARA A LISTA LATERAL (MULTAS) --- */
-
-.lateralSection h3 {
-  font-size: 1.2rem;
-  color: #333;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #C42020;
-  padding-bottom: 0.5rem;
-}
-
-.lateralList {
-  list-style: none;
-  padding: 0;
-  max-height: 450px; /* Altura máxima com scroll */
-  overflow-y: auto;
-}
-
-.lateralItem {
-  background-color: #fff;
-  border-radius: 6px;
-  padding: 1rem;
-  margin-bottom: 0.75rem;
-  border: 1px solid #eaeaea;
-}
-
-.lateralItem p {
-  margin: 0 0 0.5rem 0;
-  font-size: 0.9rem;
-}
-
-/* --- FIM DAS NOVAS CLASSES DA LISTA LATERAL --- */
-
-
-.buttonsContainer{
-    display: flex;
-    flex-wrap: wrap; /* Permite que os botões quebrem a linha em telas menores */
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid #eee;
-}
-
-/* NOVO: Estilo genérico para os links que parecem botões */
-.actionButton {
-    background-color: #C42020;
-    color: white;
-    padding: 0.5rem 1rem;
-    border: 1px #C42020 solid;
-    border-radius: 5px;
-    cursor: pointer;
-    min-width: 120px;
-    text-align: center;
-    text-decoration: none;
+    margin: 0.2rem 0;
     font-size: 0.9rem;
-    display: inline-block;
-}
-.actionButton:hover {
-    background-color: white;
-    color:#C42020;
-    transition: all 0.3s ease;
-}
-
-
-.editButton{
-    background-color: #C42020;
-    color: white;
-    padding: 0.5rem 1rem;
-    border: 1px #C42020 solid;
-    border-radius: 5px;
-    cursor: pointer;
-    min-width: 120px;
-    text-align: center;
-    font-size: 0.9rem;
-}
-.editButton:hover{
-    background-color: white;
-    color:#C42020;
-    transition: all 0.3s ease;
-}
-
-.deleteButton{
-    background-color: white;
-    color: #c42020;
-    padding: 0.5rem 1rem;
-    border: 1px #C42020 solid;
-    border-radius: 5px;
-    cursor: pointer;
-    min-width: 120px;
-    text-align: center;
-    font-size: 0.9rem;
-}
-.deleteButton:hover{
-    background-color: #C42020;
-    color: white;
-    transition: all 0.3s ease;
-}
-
-/* NOVO: Estilo para os botões de excluir menores dentro das listas */
-.deleteButtonSmall {
-  background-color: transparent;
-  color: #c42020;
-  border: 1px solid #c42020;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  margin-top: 0.5rem;
-  float: right; /* Alinha o botão à direita */
-}
-
-.deleteButtonSmall:hover {
-  background-color: #c42020;
-  color: white;
-}
-
-
-.noRecords {
-    text-align: center;
     color: #666;
-    padding: 1rem;
-    font-style: italic;
-    background-color: white;
-    border-radius: 6px;
-    border: 1px dashed #ddd;
 }
 
-/* Botão para ver o Perfil/Prontuário */
-.profileButton {
-    background-color: #333; /* Cor escura para contraste */
-    color: white;
-    padding: 0.5rem 1rem;
-    border: 1px solid #333;
-    border-radius: 5px;
-    cursor: pointer;
-    min-width: 140px; /* Um pouco mais largo */
-    text-align: center;
-    text-decoration: none;
+/* --- Botões de Ação (Rodapé) --- */
+.buttonsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-end; /* Alinha à direita */
+    padding-top: 1.5rem;
+    border-top: 1px solid #eaeaea;
+    background-color: #fff; /* Garante que fica visível */
+    position: sticky;
+    bottom: 0;
+}
+
+/* Estilo Base para Botões */
+.actionButton, .editButton, .deleteButton, .profileButton {
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
     font-size: 0.9rem;
     font-weight: 600;
-    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
     transition: all 0.2s ease;
-    
-    /* Para alinhar ícones se quiser adicionar emojis */
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    height: 40px;
 }
 
-.profileButton:hover {
+/* Botão Primário (Ações de Adicionar) */
+.actionButton {
     background-color: white;
-    color: #333;
-    transform: translateY(-2px);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    color: #C42020;
+    border-color: #C42020;
+}
+.actionButton:hover {
+    background-color: #fff5f5;
 }
 
+/* Botão Editar */
+.editButton {
+    background-color: #f0f0f0;
+    color: #333;
+}
+.editButton:hover {
+    background-color: #e0e0e0;
+}
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
+/* Botão Excluir */
+.deleteButton {
+    background-color: white;
+    color: #e53e3e;
+    border-color: #e53e3e;
+}
+.deleteButton:hover {
+    background-color: #e53e3e;
+    color: white;
+}
+.deleteButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: transparent;
+    color: #ccc;
+    border-color: #ccc;
+}
+
+/* Botão Prontuário (Destaque Escuro) */
+.profileButton {
+    background-color: #222;
+    color: white;
+    margin-left: auto; /* Empurra para o canto se possível */
+}
+.profileButton:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Botão Pequeno de Excluir Item */
+.deleteButtonSmall {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+.deleteButtonSmall:hover {
+    color: #e53e3e;
+    text-decoration: underline;
+}
+
+.noRecords {
+    text-align: center;
+    color: #888;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px dashed #ddd;
+    font-size: 0.9rem;
+}
+
+/* Scrollbar Bonita */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+    background: #ccc; 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #bbb; 
+}
+
+@keyframes modalIn {
+    from { opacity: 0; transform: scale(0.95) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
 }

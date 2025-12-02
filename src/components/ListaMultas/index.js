@@ -12,6 +12,7 @@ export default function ListaMultas({ multas, formatarData, formatarValor, onExc
                             <p><strong>Descrição:</strong> {multa.descricao}</p>
                             <p><strong>Valor:</strong> {formatarValor(multa.valor)}</p>
                             <button 
+                                disabled
                                 type="button" 
                                 className={styles.deleteButtonSmall} 
                                 onClick={() => onExcluir(multa.id)}

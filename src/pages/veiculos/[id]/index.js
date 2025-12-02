@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import api from '@/services/api';
 import styles from '@/styles/Profile.module.css';
 import Link from 'next/link';
+import Header from '@/components/header';
 
 export default function VeiculoPerfilPage() {
     const router = useRouter();
@@ -50,6 +51,8 @@ export default function VeiculoPerfilPage() {
                 </div>
 
                 <div className={`${styles.actionButtons} no-print`}>
+                    <Header/>
+
                     <button onClick={() => window.print()} className={`${styles.btn} ${styles.btnPrint}`}>
                         🖨️ Imprimir Prontuário
                     </button>

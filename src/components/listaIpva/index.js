@@ -12,6 +12,7 @@ export default function ListaIpva({ ipvaList, formatarValor, onExcluir }) {
                             <p><strong>Valor:</strong> {formatarValor(ipva.valor)}</p>
                             {ipva.descricao && <p><strong>Obs:</strong> {ipva.descricao}</p>}
                             <button 
+                            disabled
                                 type="button" 
                                 className={styles.deleteButtonSmall} 
                                 onClick={() => onExcluir(ipva.id)}

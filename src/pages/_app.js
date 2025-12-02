@@ -13,7 +13,8 @@ export default function App({ Component, pageProps }) {
     "/usuario/cadastro",
     "/",
     "/404",
-    "/relatorios"
+    "/relatorios",
+    "/veiculos"
   ];
 
   const deveMostrarHeader = !paginasSemHeader.includes(router.pathname);

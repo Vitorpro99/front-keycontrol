@@ -87,7 +87,7 @@ export default function ModalVeiculo({ veiculo, onClose }) {
                             <p><strong>Ano:</strong> {veiculo.ano}</p>
                             <p><strong>Setor:</strong> {veiculo.setor ? veiculo.setor.nome : 'Não informada'}</p>
                         </div>
-                        
+
                         <div className={styles.manutencoesSection}>
                             <h3>Histórico de Manutenções</h3>
                             {veiculo.manutencoes && veiculo.manutencoes.length > 0 ? (
@@ -98,8 +98,8 @@ export default function ModalVeiculo({ veiculo, onClose }) {
                                             <p><strong>Tipo:</strong> {manutencao.tipo}</p>
                                             <p><strong>Valor:</strong> {formatarValor(manutencao.valor)}</p>
                                             {manutencao.observacoes && <p><strong>Obs:</strong> {manutencao.observacoes}</p>}
-                                           
-                                            <button type="button" className={styles.deleteButtonSmall} onClick={() => excluirManutencao(manutencao.id)}>Excluir</button>
+
+                                            <button disabled type="button" className={styles.deleteButtonSmall} onClick={() => excluirManutencao(manutencao.id)}>Excluir</button>
                                         </li>
                                     ))}
                                 </ul>
@@ -111,14 +111,14 @@ export default function ModalVeiculo({ veiculo, onClose }) {
 
                     {/* Coluna Lateral (Direita) */}
                     <div className={styles.sideColumn}>
-                        <ListaMultas     
+                        <ListaMultas
                             multas={veiculo.multas}
                             formatarData={formatarData}
                             formatarValor={formatarValor}
                             onExcluir={excluirMulta}
                         />
 
-                        <ListaIpva 
+                        <ListaIpva
                             ipvaList={veiculo.ipvaVeiculo}
                             formatarValor={formatarValor}
                             onExcluir={excluirIpva}
@@ -131,7 +131,10 @@ export default function ModalVeiculo({ veiculo, onClose }) {
                     <Link className={styles.editButton} href={`/cadastro-ipva/${veiculo.id}`}>Adicionar IPVA </Link>
                     <Link className={styles.editButton} href={`/transferir/${veiculo.id}`}>Transferir Veículo</Link>
                     <button type="button" className={styles.editButton} onClick={() => editarVeiculo(veiculo.id)}>Editar Veículo</button>
-                    <button type="button" className={styles.deleteButton} onClick={() => excluirVeículo(veiculo.id)}>Excluir Veículo</button>
+                    <button type="button" disabled className={styles.deleteButton} onClick={() => excluirVeículo(veiculo.id)}>Excluir Veículo</button>
+                    <Link href={`/seguro/cadastrar/${veiculo.id}`} className={styles.actionButton}>
+                        Adicionar Seguro
+                    </Link>
                     <Link href={`/veiculos/${veiculo.id}`} className={styles.profileButton}>
                         Ver Prontuário
                     </Link>
