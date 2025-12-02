@@ -106,7 +106,7 @@ export default function LoginPage() {
                     
                     <div className={styles.footerText}>
                         Não tem uma conta? 
-                        <Link href="/usuario/cadastro" className={styles.link}>
+                        <Link href="/cadastro-usuario" className={styles.link}>
                             Cadastre-se
                         </Link>
                     </div>
