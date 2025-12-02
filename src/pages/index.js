@@ -20,7 +20,7 @@ export default function LandingPage() {
             <div className={styles.headerContent}>
                 <span className={styles.logo}>🔑 KeyControl</span>
                 <div className={styles.headerButtons}>
-                    <Link href="/usuario/cadastro" className={styles.outlineButton}>Criar Conta</Link>
+                    <Link href="/cadastro-usuario" className={styles.outlineButton}>Criar Conta</Link>
                     <Link href="/login" className={styles.solidButton}>Entrar</Link>
                 </div>
             </div>
@@ -43,7 +43,7 @@ export default function LandingPage() {
                     <Link href="/login" className={styles.ctaButton}>
                       Acessar Painel
                     </Link>
-                    <Link href="/usuario/cadastro" className={styles.secondaryCta}>
+                    <Link href="/cadastro-usuario" className={styles.secondaryCta}>
                       Novo Cadastro
                     </Link>
                 </div>

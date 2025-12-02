@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-    // A MÁGICA ACONTECE AQUI:
+    
     // Tenta ler a variável da Vercel. Se não existir (null/undefined), usa o localhost.
     baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080/",
     headers: {
