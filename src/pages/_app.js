@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import Header from "@/components/Header"; // Verifique maiúscula/minúscula
+import Header from "@/components/header"; // Verifique maiúscula/minúscula
 import { useRouter } from "next/router";
 import Head from "next/head";
 
