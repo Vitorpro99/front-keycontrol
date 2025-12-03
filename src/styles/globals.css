@@ -41,3 +41,15 @@ a {
   }
   
 }
+@media print {
+    /* Esconde o Header Global em TODAS as páginas ao imprimir */
+    .layout-header {
+        display: none !important;
+    }
+
+    /* Garante fundo branco e texto preto para economizar tinta e ler melhor */
+    body {
+        background-color: white !important;
+        color: black !important;
+    }
+}

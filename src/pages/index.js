@@ -18,7 +18,7 @@ export default function LandingPage() {
         {/* Cabeçalho exclusivo da Landing Page */}
         <header className={styles.landingHeader}>
             <div className={styles.headerContent}>
-                <span className={styles.logo}>🔑 KeyControl</span>
+                <span className={styles.logo}>KeyControl</span>
                 <div className={styles.headerButtons}>
                     <Link href="/cadastro-usuario" className={styles.outlineButton}>Criar Conta</Link>
                     <Link href="/login" className={styles.solidButton}>Entrar</Link>

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import api from '@/services/api';
 import styles from '@/styles/Profile.module.css';
 import Link from 'next/link';
-import Header from '@/components/header';
+
 
 export default function VeiculoPerfilPage() {
     const router = useRouter();
